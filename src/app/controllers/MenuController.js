@@ -1,13 +1,11 @@
+class MenuController {
+    index_menu(req, res) {
+        res.render('menu');
+    }
 
-class MenuController{
-
-  index_menu(req, res) {
-    res.render('menu');
-  }
-
-  flashdeal(req, res) {
-    res.send('FLASHDEAL');
-  }
+    flashdeal(req, res) {
+        res.send('FLASHDEAL');
+    }
 }
 
-module.exports = new MenuController;
+module.exports = new MenuController();
