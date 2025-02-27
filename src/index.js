@@ -19,7 +19,14 @@ app.use(morgan('combined'));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.engine('.hbs', engine({ extname: '.hbs' }));
+app.engine('.hbs', engine({ 
+    extname: '.hbs',
+    defaultLayout: 'main', // Đặt layout mặc định
+    layoutsDir: path.join(__dirname, 'resources', 'views', 'layouts'),
+    partialsDir: path.join(__dirname, 'resources', 'views', 'partials')
+}));
+
+
 app.set('view engine', '.hbs');
 app.set('views', path.join(__dirname, 'resources', 'views'));
 

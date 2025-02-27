@@ -1,0 +1,33 @@
+// abstracts
+@use 'abstracts/variables';
+@use 'abstracts/mixins';
+@use 'abstracts/functions';
+@use 'abstracts/fonts';
+
+// base
+@use 'base/reset'; // Nếu cần, hoặc sử dụng Bootstrap's reset
+@use 'base/typography';
+@use 'base/base';
+
+// components
+
+@use 'components/forms';
+
+
+// layout
+@use 'layout/grid'; // Sử dụng Bootstrap grid nếu cần
+@use 'layout/sidebar'; // Nếu có
+@use 'layout/header';
+@use 'layout/footer';
+
+// pages
+@use 'pages/home';
+@use 'pages/about';
+@use 'pages/menu';
+@use 'pages/contact';
+
+// admin
+@use 'admin/admin-dashboard';
+@use 'admin/admin-users';
+@use 'admin/admin-orders';
+@use 'admin/admin-reports';

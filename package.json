@@ -5,7 +5,8 @@
   "scripts": {
     "beautiful": "prettier --single-quote --trailing-comma all  --tab-width 4 --write 'src/**/*.{js,json,scss}'",
     "start": "nodemon --inspect src/index.js",
-    "watch": "sass --watch src/resources/scss/app.scss src/public/css/app.css",
+    "migrate": "sass-migrator module --migrate-deps src/resources/scss/main.scss",
+    "watch": "sass --watch src/resources/scss/main.scss src/public/css/app.css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -29,6 +30,7 @@
     "morgan": "^1.10.0",
     "nodemon": "^3.1.9",
     "prettier": "^3.4.2",
-    "sass": "^1.83.0"
+    "sass": "^1.83.0",
+    "sass-migrator": "^2.3.0"
   }
 }

@@ -1,0 +1,114 @@
+footer {
+  background-color: #111;
+  color: #fff;
+  padding: 3rem 0;
+
+  h5 {
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+  }
+
+  p {
+    color: #bbb;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      margin-bottom: 0.6rem;
+
+      a {
+        color: #bbb;
+        text-decoration: none;
+        transition: color 0.3s ease-in-out;
+
+        &:hover {
+          color: #ffc107;
+        }
+      }
+    }
+  }
+
+  .input-group {
+    input {
+      background: #222;
+      border: none;
+      color: white;
+      padding: 0.7rem;
+      font-size: 0.95rem;
+
+      &::placeholder {
+        color: #aaa;
+      }
+
+      &:focus {
+        outline: none;
+        box-shadow: none;
+      }
+    }
+
+    button {
+      background-color: #ffc107;
+      color: #222;
+      font-weight: bold;
+      border: none;
+      transition: background 0.3s ease-in-out;
+
+      &:hover {
+        background-color: #e0a800;
+      }
+    }
+  }
+
+  .social-icons {
+    a {
+      color: #bbb;
+      font-size: 1.5rem;
+      margin-right: 1rem;
+      transition: color 0.3s ease-in-out;
+
+      &:hover {
+        color: #ffc107;
+      }
+    }
+  }
+
+  hr {
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  @media (max-width: 768px) {
+    text-align: center;
+
+    .social-icons {
+      margin-top: 1rem;
+    }
+  }
+
+  .subscribe-btn {
+    background-color: #ffc107;
+    color: #222;
+    font-weight: bold;
+    border: none;
+    transition: all 0.3s ease-in-out;
+    
+    // Hiệu ứng phát sáng
+    box-shadow: 0 0 10px rgba(255, 193, 7, 0.5);
+  
+    &:hover {
+      background-color: #e0a800;
+      box-shadow: 0 0 20px rgba(255, 193, 7, 0.8);
+    }
+  
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 25px rgba(255, 193, 7, 1);
+    }
+  }
+  
+}

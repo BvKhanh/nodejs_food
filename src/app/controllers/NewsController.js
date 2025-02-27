@@ -13,9 +13,7 @@ class NewsController {
             .catch(next);
     }
 
-    show_news(req, res) {
-        res.send('!!!');
-    }
+
 }
 
 module.exports = new NewsController();

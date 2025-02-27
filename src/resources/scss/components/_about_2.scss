@@ -1,0 +1,61 @@
+.info-section {
+  padding: 3rem 0;
+  display: flex;
+  align-items: center; // Căn giữa theo chiều dọc
+  justify-content: space-between;
+
+  .info-title {
+      font-size: 1.75rem;
+      font-weight: bold;
+      margin-bottom: 1.5rem;
+  }
+
+  .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      max-width: 400px;
+      align-items: center;
+  }
+
+  .info-box {
+      background-color: white;
+      padding: 1.5rem;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .info-number {
+      font-size: 2rem;
+      font-weight: bold;
+  }
+
+  .info-text {
+      font-size: 1rem;
+  }
+
+  .info-image {
+      display: block;
+      margin: 0 auto;
+      max-width: 100%;
+      width: 550px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      max-height: 400px;
+      order: 2;
+      justify-self: center;
+      align-self: center;
+  }
+
+  .info-box {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #000000; // Thêm viền đen mỏng
+}
+
+}

@@ -1,0 +1,60 @@
+.menu-wrapper {
+  background-color: #FFA500;
+  width: 100%;
+  padding: 50px 0; // Tạo khoảng cách trên dưới
+
+  .menu-container {
+      max-width: 1200px;
+      margin: 0 auto; // Căn giữa nội dung
+  }
+  .card-text {
+    color: black; // Chữ màu đen
+  }
+
+  .card-title{
+    color: #AD343E; // Chữ màu đen
+  }
+  .menu-item {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: 0.3s;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); // Thêm bóng nhẹ
+
+      &:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .card-body {
+          text-align: center;
+      }
+
+      .menu-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+      
+        button {
+          flex: 1;
+          min-width: 120px;
+          max-width: 200px;
+          padding: 10px 20px;
+          text-align: center;
+          border-radius: 45%;
+          background-color: white;
+          border: 2px solid white; // Viền màu trắng
+          color: black;
+          font-weight: bold;
+          transition: 0.3s ease-in-out;
+        }
+      
+        button:hover {
+          background-color: #f5f5f5;
+        }
+      }
+      
+  }
+}
+
+

@@ -1,0 +1,34 @@
+.container-best-deals {
+  display: flex;
+  flex-direction: column;
+  align-items: center; // Canh giữa các card
+  gap: 20px;
+
+  .card-deals {
+    max-width: 1400px; // Tăng chiều ngang tối đa
+    width: 100%;
+    
+    .row {
+      display: flex;
+      align-items: center;
+    }
+
+    .img-container {
+      flex: 90%; // Ảnh chiếm 90% chiều ngang
+      img {
+        width: 100%;
+        height: 25vh; // Giảm chiều cao ảnh xuống 25%
+        object-fit: cover;
+      }
+    }
+
+    .content-container {
+      flex: 10%; // Nội dung chỉ chiếm 10% chiều ngang
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 75%; // 75% chiều dọc so với ảnh
+      padding: 10px;
+    }
+  }
+}

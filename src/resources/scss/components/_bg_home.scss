@@ -1,0 +1,68 @@
+.header-nav {
+  background-image: url('/img/bg.png');
+  padding: 30px; /* Khoảng cách bên trong */
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.text_1 {
+      font-family: 'Lobster', cursive; /* Font chữ cursive */
+        font-size: 2rem; /* Kích thước chữ lớn cho tiêu đề */
+        font-weight: bold; /* Chữ đậm */
+        color: #000000;
+        position: absolute;
+        top: 25%;
+        left: 10.5rem;
+        padding-bottom: 30px
+    }
+
+    .text_2 {
+      font-family: 'Source Sans Pro', sans-serif; /* Font chữ sans-serif */
+        font-size: 1.2rem; /* Kích thước chữ cho mô tả */
+        color: #504F4F; /* Màu chữ xám */
+        position: absolute;
+    top: 10rem;
+    left: 10.5rem;
+    padding-top: 20px;
+    }
+
+    .container-home{
+      padding: 8rem;
+     }
+  
+     .header-nav{
+      position: relative;
+     }
+
+     .form-inline {
+      display: flex; /* Sử dụng flexbox để căn chỉnh các phần tử trong hàng */
+      align-items: center; /* Căn giữa dọc các phần tử */
+      margin-top: auto; /* Đẩy form xuống dưới card */
+  
+  }
+
+  .form-group{
+    width: 70%;
+    position: relative;
+    flex: 1;
+    margin-right: 10px; 
+    top: 25px;
+   }
+
+   .btn-primary {
+    background-color: #FF0000;   
+    border: none;
+    color: #000000;
+    margin-top: 50px;
+    outline: none;
+}
+
+.btn-primary:hover {
+    background-color: #cc0000; /* Một màu tối hơn khi hover */
+    color: $black-color; 
+}
+
+.btn-primary:active {
+    background-color: #990000; /* Một màu tối hơn khi nhấn */
+    color: gray; /* Thay đổi màu chữ khi nhấn */
+}

@@ -1,0 +1,136 @@
+.order-apps-section {
+  background: #FFFFFF; // Nền trắng
+  padding: 60px 0;
+  
+  .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+  }
+
+  .order-apps-content {
+      width: 45%;
+      color: #333; // Chữ tối hơn để dễ đọc trên nền trắng
+
+      h2 {
+          font-size: 2rem;
+          font-weight: bold;
+          margin-bottom: 15px;
+          color: #FFA500; // Màu cam làm điểm nhấn
+      }
+
+      h3 {
+          font-size: 1.5rem;
+          margin-top: 20px;
+          color: #555;
+      }
+
+      p {
+          font-size: 1rem;
+          line-height: 1.6;
+          margin-bottom: 15px;
+          color: #666;
+      }
+
+      ul {
+          list-style: none;
+          padding: 0;
+          
+          li {
+              font-size: 1rem;
+              margin: 8px 0;
+              display: flex;
+              align-items: center;
+              
+              &::before {
+                  content: "✔";
+                  color: #FFA500;
+                  margin-right: 10px;
+                  font-weight: bold;
+              }
+          }
+      }
+
+      .download-app-btn {
+          display: inline-block;
+          margin-top: 15px;
+          padding: 12px 25px;
+          background: #FFA500;
+          color: white;
+          font-size: 1.1rem;
+          font-weight: bold;
+          border-radius: 25px;
+          text-decoration: none;
+          transition: all 0.3s ease-in-out;
+
+          &:hover {
+              background: #E69500;
+              transform: scale(1.05);
+          }
+      }
+  }
+
+  .order-apps-grid {
+      width: 50%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+
+      .order-app-logo {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background: white;
+          padding: 15px;
+          border-radius: 10px;
+          border: 1px solid #ddd; // Viền nhẹ để tách biệt với nền trắng
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+          transition: 0.3s ease-in-out;
+
+          &:hover {
+              transform: translateY(-5px);
+              box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+          }
+
+          img {
+              max-width: 80px;
+              height: auto;
+              transition: 0.3s ease-in-out;
+
+              &:hover {
+                  transform: scale(1.1);
+              }
+          }
+      }
+  }
+
+  @media (max-width: 1024px) {
+      .container {
+          flex-direction: column;
+          text-align: center;
+      }
+
+      .order-apps-content {
+          width: 100%;
+          margin-bottom: 30px;
+      }
+
+      .order-apps-grid {
+          width: 100%;
+          grid-template-columns: repeat(3, 1fr);
+      }
+  }
+
+  @media (max-width: 768px) {
+      .order-apps-grid {
+          grid-template-columns: repeat(2, 1fr);
+      }
+  }
+
+  @media (max-width: 480px) {
+      .order-apps-grid {
+          grid-template-columns: repeat(1, 1fr);
+      }
+  }
+}
