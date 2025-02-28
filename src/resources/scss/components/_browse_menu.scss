@@ -1,39 +1,80 @@
-.container-browse {
-    background: #FCFCFC; /* Màu nhạt hơn */
-    padding: 50px 0;
+// Định nghĩa background gradient cho container
+.custom-background {
+    background: linear-gradient(60deg, #fff9e6, #ffffff) ;
+  }
+  
+  // Tạo kiểu cho tiêu đề
+  h1.text-center {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  // Cải thiện kiểu cho các phần tử card
+  .card {
+    border: none;
     border-radius: 10px;
-    margin: 0;
-}
-
-.browse-card{
-    width: 250px;
-    height: 350px;
-    border-radius: 8%;
-    background-color: #212121;
-    
-}
-
-.card-body img {
-    width: 70px;
-    height: 70px;
-    background-color: #E0E0E0; /* Màu nền */
-    border-radius: 50%;
-    padding: 14.3px;
-}
-
-.card-link{
-    text-decoration: none;
-    color: #AD343E;
-    font-weight: bold;
-}
-
-.card-link:hover{
-    color: #2C2F24;
-    text-decoration: none;
-}
-
-.card-title, .card-text{
-    color: #E0E0E0;
-    font-size: 20px;
-    font-weight: bold;
-}
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);  // Bóng đổ đậm hơn cho card
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+    &:hover {
+      transform: translateY(-10px);  // Di chuyển card lên khi hover
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);  // Bóng đổ đậm hơn khi hover
+    }
+  
+    .card-body {
+      padding: 30px;
+      text-align: center;
+    }
+  
+    .card-img-top {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      margin-bottom: 20px;
+    }
+  
+    .card-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #444;
+      margin-bottom: 10px;
+    }
+  
+    .card-text {
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 20px;
+    }
+  
+    // Áp dụng text-decoration: none cho tất cả liên kết trong card
+    .btn-link {
+      font-size: 1.1rem;
+      color: #e74c3c;
+      font-weight: bold;
+      transition: color 0.3s ease;
+      text-decoration: none;  // Bỏ gạch chân cho các liên kết
+  
+      &:hover {
+        color: #c0392b;
+      }
+    }
+  }
+  
+  // Cải thiện layout của các cột
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+  
+  .col {
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  

@@ -1,0 +1,105 @@
+// // Đặt màu nền và các tùy chỉnh khác
+// $primary-color: #FFA500; // Màu cam (có thể thay đổi theo yêu cầu)
+// $secondary-color: #f8f9fa; // Màu nền cho thẻ thông tin
+
+// // Đặt các thuộc tính chung
+// * {
+//   box-sizing: border-box;
+// }
+
+// .container-fluid {
+//   background-color: $primary-color;
+//   min-height: 50vh; // Giảm chiều cao background xuống 50% chiều cao màn hình
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   padding: 0;
+// }
+
+// .bg-white {
+//   background-color: #ffffff;
+//   border-radius: 15px;
+//   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+//   display: flex;
+//   flex-direction: column;
+//   flex-md-direction: row;
+//   width: 100%;
+//   max-width: 1200px; // Đảm bảo rằng thẻ này không quá rộng
+//   overflow: hidden;
+// }
+
+// .p-4, .p-8 {
+//   padding: 1rem;
+// }
+
+// img {
+//   border-radius: 15px;
+//   object-fit: cover;
+// }
+
+// .p-8 {
+//   padding: 2rem;
+// }
+
+// h1 {
+//   font-size: 2rem;
+//   font-weight: bold;
+//   margin-bottom: 1.5rem;
+//   color: #333;
+//   line-height: 1.2;
+// }
+
+// p {
+//   font-size: 1.1rem;
+//   color: #6c757d;
+//   margin-bottom: 1.5rem;
+// }
+
+// ul {
+//   list-style-type: none;
+//   padding-left: 0;
+//   font-size: 1rem;
+// }
+
+// ul li {
+//   display: flex;
+//   align-items: center;
+//   margin-bottom: 1rem;
+//   color: #333;
+// }
+
+// ul li i {
+//   font-size: 1.5rem;
+//   color: $primary-color;
+//   margin-right: 0.75rem;
+// }
+
+// ul li span {
+//   font-size: 1.1rem;
+//   font-weight: 500;
+// }
+
+// // Responsive thiết kế
+// @media (max-width: 768px) {
+//   .bg-white {
+//     flex-direction: column;
+//   }
+
+//   .p-8 {
+//     padding: 1.5rem;
+//   }
+
+//   h1 {
+//     font-size: 1.5rem;
+//     margin-bottom: 1rem;
+//   }
+
+//   p {
+//     font-size: 1rem;
+//     margin-bottom: 1rem;
+//   }
+
+//   ul li {
+//     font-size: 1rem;
+//   }
+// }

@@ -1,13 +1,19 @@
-@import'../../scss/abstracts/variables.scss';
+@use'../../scss/abstracts/variables.scss';
 
-@import '../components/_bg_home';
+@use '../components/_bg_home';
 
-@import '../components/flashdeal';
+@use '../components/flashdeal';
 
-@import '../components/_browse_menu';
+@use '../components/_browse_menu';
 
-@import '../components/_popular_item';
+@use '../components/_popular_item';
 
-@import '../components/_bg_intro';
+@use '../components/_bg_intro';
 
-@import '../components/_best_deals';
+@use '../components/_best_deals';
+
+@use '../components/_deli_food';
+
+@use '../components/_best_deal';
+
+@use '../components/_bg_order';

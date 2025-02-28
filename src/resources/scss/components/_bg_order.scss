@@ -1,0 +1,54 @@
+.order-section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 400px; // Chiều cao của phần
+  overflow: hidden;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  
+  .background-image-left, .background-image-right {
+      position: absolute;
+      width: 50%;
+      height: 100%;
+      object-fit: cover;
+  }
+
+  .background-image-left {
+      left: 0;
+  }
+
+  .background-image-right {
+      right: 0;
+  }
+
+  .content {
+      position: relative; // Đặt vị trí tương đối cho nội dung
+      z-index: 1; // Đảm bảo nội dung nằm trên ảnh
+      text-align: center;
+      color: white;
+
+      h1 {
+          font-size: 2rem;
+          margin-bottom: 1rem;
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      .order-button {
+          padding: 0.75rem 2rem;
+          font-size: 1rem;
+          color: white;
+          background-color: #dc3545; // Màu nền cho nút
+          border: none;
+          border-radius: 0.5rem;
+          cursor: pointer;
+          transition: background-color 0.3s, transform 0.3s;
+
+          &:hover {
+              background-color: #c82333; // Màu khi di chuột
+              transform: scale(1.05);
+          }
+      }
+  }
+}
