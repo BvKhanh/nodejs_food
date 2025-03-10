@@ -1,3 +1,4 @@
+@use "sass:color";
 .custom-container {
   display: flex;
   justify-content: center; // Căn giữa theo chiều ngang
@@ -58,7 +59,7 @@
       cursor: pointer;
 
       &:hover {
-        background-color: darken(#dc3545, 10%); // Tối màu khi hover
+        background-color: color.scale(#dc3545, $lightness: -10%);
       }
     }
   }

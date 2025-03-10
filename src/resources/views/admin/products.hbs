@@ -1,0 +1,149 @@
+<div class="container mt-4">
+    <h2 class="mb-4">Quản lý Món ăn</h2>
+
+    <!-- Thanh công cụ -->
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <input type="text" id="searchProduct" class="form-control" placeholder="Tìm kiếm món ăn...">
+        </div>
+        <div class="col-md-4">
+            <select id="filterStatus" class="form-select">
+                <option value="all">Tất cả trạng thái</option>
+                <option value="available">Đang bán</option>
+                <option value="out_of_stock">Hết hàng</option>
+            </select>
+        </div>
+        <div class="col-md-2">
+            <button class="btn btn-primary w-100" onclick="filterProducts()">Lọc</button>
+        </div>
+    </div>
+
+    <!-- Nút thêm sản phẩm -->
+    <div class="d-flex justify-content-end mb-3">
+        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addProductModal">Thêm món ăn</button>
+    </div>
+
+    <!-- Bảng sản phẩm -->
+    <table class="table table-bordered table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>Hình ảnh</th>
+                <th>Tên món</th>
+                <th>Giá</th>
+                <th>Trạng thái</th>
+                <th>Hành động</th>
+            </tr>
+        </thead>
+        <tbody id="productTable">
+            {{#each products}}
+            <tr data-status="{{this.status}}">
+                <td><img src="/uploads/{{this.image}}" alt="{{this.name}}" width="50" height="50"></td>
+                <td>{{this.name}}</td>
+                <td>{{this.price}} VNĐ</td>
+                <td>
+                    {{#if (eq this.status "available")}}<span class="badge bg-success">Đang bán</span>{{/if}}
+                    {{#if (eq this.status "out_of_stock")}}<span class="badge bg-danger">Hết hàng</span>{{/if}}
+                </td>
+                <td>
+                    <button class="btn btn-warning btn-sm">Chỉnh sửa</button>
+                    <button class="btn btn-danger btn-sm">Xóa</button>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+
+<!-- Modal thêm sản phẩm -->
+<div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addProductModalLabel">Thêm món ăn mới</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="addProductForm" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="productName" class="form-label">Tên món</label>
+                        <input type="text" class="form-control" id="productName" name="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="productPrice" class="form-label">Giá</label>
+                        <input type="number" class="form-control" id="productPrice" name="price" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="productImage" class="form-label">Hình ảnh</label>
+                        <input type="file" class="form-control" id="productImage" name="image" accept="image/*" required>
+                        <img id="previewImage" src="#" alt="Xem trước ảnh" style="display: none; width: 100px; margin-top: 10px;">
+                    </div>
+                    <div class="mb-3">
+                        <label for="productStatus" class="form-label">Trạng thái</label>
+                        <select class="form-select" id="productStatus" name="status">
+                            <option value="available">Đang bán</option>
+                            <option value="out_of_stock">Hết hàng</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Thêm</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Script xử lý ảnh -->
+<script>
+    document.getElementById("productImage").addEventListener("change", function(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const preview = document.getElementById("previewImage");
+                preview.src = e.target.result;
+                preview.style.display = "block";
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+
+    // Xử lý gửi form
+    document.getElementById("addProductForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        const formData = new FormData(this);
+
+        fetch("/admin/add-product", {
+            method: "POST",
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert("Thêm món ăn thành công!");
+                location.reload();
+            } else {
+                alert("Lỗi khi thêm món ăn!");
+            }
+        })
+        .catch(error => console.error("Lỗi:", error));
+    });
+
+    function filterProducts() {
+        const searchValue = document.getElementById('searchProduct').value.toLowerCase();
+        const statusFilter = document.getElementById('filterStatus').value;
+        const rows = document.querySelectorAll("#productTable tr");
+
+        rows.forEach(row => {
+            const productName = row.cells[1].textContent.toLowerCase();
+            const status = row.getAttribute("data-status");
+
+            const matchesSearch = productName.includes(searchValue);
+            const matchesStatus = (statusFilter === "all") || (status === statusFilter);
+
+            if (matchesSearch && matchesStatus) {
+                row.style.display = "";
+            } else {
+                row.style.display = "none";
+            }
+        });
+    }
+</script>

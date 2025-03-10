@@ -1,0 +1,72 @@
+<div class="container mt-4">
+    <h2 class="mb-4">Giỏ hàng của bạn</h2>
+
+    <table class="table table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>Hình ảnh</th>
+                <th>Tên món</th>
+                <th>Giá</th>
+                <th>Số lượng</th>
+                <th>Tổng</th>
+                <th>Hành động</th>
+            </tr>
+        </thead>
+        <tbody id="cartTable">
+            {{#each cartItems}}
+            <tr>
+                <td><img src="{{this.image}}" alt="{{this.name}}" width="50" height="50"></td>
+                <td>{{this.name}}</td>
+                <td>{{this.price}} VNĐ</td>
+                <td>
+                    <input type="number" value="{{this.quantity}}" min="1" class="form-control cart-quantity" data-id="{{this.id}}">
+                </td>
+                <td>{{this.total}} VNĐ</td>
+                <td>
+                    <button class="btn btn-danger btn-sm remove-from-cart" data-id="{{this.id}}">Xóa</button>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+    <div class="text-end">
+        <h4>Tổng tiền: <span id="cartTotal">{{cartTotal}} VNĐ</span></h4>
+        <button class="btn btn-primary">Thanh toán</button>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".cart-quantity").forEach(input => {
+            input.addEventListener("change", function () {
+                const id = this.dataset.id;
+                const quantity = this.value;
+                updateCart(id, quantity);
+            });
+        });
+
+        document.querySelectorAll(".remove-from-cart").forEach(button => {
+            button.addEventListener("click", function () {
+                const id = this.dataset.id;
+                removeFromCart(id);
+            });
+        });
+
+        function updateCart(id, quantity) {
+            fetch("/cart/update", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ id, quantity })
+            }).then(() => location.reload());
+        }
+
+        function removeFromCart(id) {
+            fetch("/cart/remove", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ id })
+            }).then(() => location.reload());
+        }
+    });
+</script>

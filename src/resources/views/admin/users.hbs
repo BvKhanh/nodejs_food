@@ -1,0 +1,151 @@
+<div class="container mt-4">
+    <h2 class="mb-4">Quản lý Người dùng</h2>
+
+    <!-- Thanh tìm kiếm và lọc -->
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <input type="text" id="searchUser" class="form-control" placeholder="Tìm kiếm người dùng...">
+        </div>
+        <div class="col-md-4">
+            <select id="filterRole" class="form-select">
+                <option value="all">Tất cả vai trò</option>
+                <option value="admin">Admin</option>
+                <option value="customer">Khách hàng</option>
+            </select>
+        </div>
+        <div class="col-md-2">
+            <button class="btn btn-primary w-100" onclick="filterUsers()">Lọc</button>
+        </div>
+    </div>
+
+    <!-- Bảng danh sách người dùng -->
+    <table class="table table-bordered table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>Họ & Tên</th>
+                <th>Email</th>
+                <th>Vai trò</th>
+                <th>Hành động</th>
+            </tr>
+        </thead>
+        <tbody id="userTable">
+            {{#each users}}
+            <tr data-role="{{this.role}}">
+                <td>{{this.name}}</td>
+                <td>{{this.email}}</td>
+                <td>
+                    {{#if (eq this.role "admin")}}<span class="badge bg-danger">Admin</span>{{/if}}
+                    {{#if (eq this.role "customer")}}<span class="badge bg-primary">Khách hàng</span>{{/if}}
+                </td>
+                <td>
+                    <button class="btn btn-warning btn-sm" onclick="editUser('{{this._id}}')">Chỉnh sửa</button>
+                    <button class="btn btn-danger btn-sm" onclick="deleteUser('{{this._id}}')">Xóa</button>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+
+<!-- Modal chỉnh sửa người dùng -->
+<div class="modal fade" id="editUserModal" tabindex="-1" aria-labelledby="editUserModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editUserModalLabel">Chỉnh sửa thông tin</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="editUserForm">
+                    <input type="hidden" id="editUserId">
+                    <div class="mb-3">
+                        <label for="editUserName" class="form-label">Họ & Tên</label>
+                        <input type="text" class="form-control" id="editUserName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="editUserEmail" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="editUserEmail" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="editUserRole" class="form-label">Vai trò</label>
+                        <select class="form-select" id="editUserRole">
+                            <option value="admin">Admin</option>
+                            <option value="customer">Khách hàng</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Cập nhật</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Script tìm kiếm, lọc, chỉnh sửa, xóa -->
+<script>
+    function filterUsers() {
+        const searchValue = document.getElementById('searchUser').value.toLowerCase();
+        const roleFilter = document.getElementById('filterRole').value;
+        const rows = document.querySelectorAll("#userTable tr");
+
+        rows.forEach(row => {
+            const userName = row.cells[0].textContent.toLowerCase();
+            const role = row.getAttribute("data-role");
+
+            const matchesSearch = userName.includes(searchValue);
+            const matchesRole = (roleFilter === "all") || (role === roleFilter);
+
+            row.style.display = (matchesSearch && matchesRole) ? "" : "none";
+        });
+    }
+
+    function editUser(id) {
+        fetch(`/admin/users/${id}`)
+            .then(res => res.json())
+            .then(user => {
+                document.getElementById("editUserId").value = user._id;
+                document.getElementById("editUserName").value = user.name;
+                document.getElementById("editUserEmail").value = user.email;
+                document.getElementById("editUserRole").value = user.role;
+                new bootstrap.Modal(document.getElementById("editUserModal")).show();
+            })
+            .catch(err => console.error("Lỗi khi tải thông tin người dùng:", err));
+    }
+
+    document.getElementById("editUserForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+        const id = document.getElementById("editUserId").value;
+        const name = document.getElementById("editUserName").value;
+        const email = document.getElementById("editUserEmail").value;
+        const role = document.getElementById("editUserRole").value;
+
+        fetch(`/admin/users/${id}`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ name, email, role })
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.success) {
+                location.reload();
+            } else {
+                alert("Cập nhật thất bại!");
+            }
+        })
+        .catch(err => console.error("Lỗi cập nhật:", err));
+    });
+
+    function deleteUser(id) {
+        if (confirm("Bạn có chắc chắn muốn xóa người dùng này?")) {
+            fetch(`/admin/users/${id}`, { method: "DELETE" })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        location.reload();
+                    } else {
+                        alert("Xóa thất bại!");
+                    }
+                })
+                .catch(err => console.error("Lỗi xóa người dùng:", err));
+        }
+    }
+</script>

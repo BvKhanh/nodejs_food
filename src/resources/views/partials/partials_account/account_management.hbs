@@ -1,0 +1,22 @@
+<h1>Danh sách tài khoản</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Email</th>
+            <th>Vai trò</th>
+            <th>Trạng thái</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each accounts}}
+        <tr>
+            <td>{{this.id}}</td>
+            <td>{{this.email}}</td>
+            <td>{{this.role}}</td>
+            <td>{{this.status}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+  

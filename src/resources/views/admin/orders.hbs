@@ -1,0 +1,79 @@
+<div class="container mt-4">
+    <h2 class="mb-4">Quản lý Đơn hàng</h2>
+
+    <!-- Thanh tìm kiếm -->
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <input type="text" id="searchOrder" class="form-control" placeholder="Tìm kiếm đơn hàng...">
+        </div>
+        <div class="col-md-4">
+            <select id="filterStatus" class="form-select">
+                <option value="all">Tất cả trạng thái</option>
+                <option value="processing">Đang xử lý</option>
+                <option value="shipping">Đang giao</option>
+                <option value="delivered">Đã giao</option>
+                <option value="cancelled">Bị hủy</option>
+            </select>
+        </div>
+        <div class="col-md-2">
+            <button class="btn btn-primary w-100" onclick="filterOrders()">Lọc</button>
+        </div>
+    </div>
+
+    <!-- Bảng đơn hàng -->
+    <table class="table table-bordered table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>Mã Đơn</th>
+                <th>Khách hàng</th>
+                <th>Tổng tiền</th>
+                <th>Trạng thái</th>
+                <th>Ngày đặt</th>
+                <th>Hành động</th>
+            </tr>
+        </thead>
+        <tbody id="orderTable">
+            {{#each orders}}
+            <tr data-status="{{this.status}}">
+                <td>#{{this.id}}</td>
+                <td>{{this.customer}}</td>
+                <td>{{this.total}} VNĐ</td>
+                <td>
+                    {{#if (eq this.status "processing")}}<span class="badge bg-warning">Đang xử lý</span>{{/if}}
+                    {{#if (eq this.status "shipping")}}<span class="badge bg-primary">Đang giao</span>{{/if}}
+                    {{#if (eq this.status "delivered")}}<span class="badge bg-success">Đã giao</span>{{/if}}
+                    {{#if (eq this.status "cancelled")}}<span class="badge bg-danger">Bị hủy</span>{{/if}}
+                </td>
+                <td>{{this.date}}</td>
+                <td>
+                    <button class="btn btn-info btn-sm">Xem</button>
+                    <button class="btn btn-danger btn-sm">Hủy</button>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+
+<!-- Script tìm kiếm và lọc -->
+<script>
+    function filterOrders() {
+        const searchValue = document.getElementById('searchOrder').value.toLowerCase();
+        const statusFilter = document.getElementById('filterStatus').value;
+        const rows = document.querySelectorAll("#orderTable tr");
+
+        rows.forEach(row => {
+            const orderId = row.cells[0].textContent.toLowerCase();
+            const status = row.getAttribute("data-status");
+
+            const matchesSearch = orderId.includes(searchValue);
+            const matchesStatus = (statusFilter === "all") || (status === statusFilter);
+
+            if (matchesSearch && matchesStatus) {
+                row.style.display = "";
+            } else {
+                row.style.display = "none";
+            }
+        });
+    }
+</script>

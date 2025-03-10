@@ -4,7 +4,7 @@
 /* Hero Section */
 .hero-section {
   position: relative;
-  height: 100vh; /* Chiếm toàn bộ màn hình */
+  height: 70vh;
   background: linear-gradient(to right, #fbbd08, #f97316);
   display: flex;
   flex-direction: column;
@@ -37,7 +37,6 @@
   }
 }
 
-/* Hiệu ứng khi cuộn xuống */
 .content-section {
   opacity: 0;
   transform: translateY(50px);
@@ -49,7 +48,6 @@
   transform: translateY(0);
 }
 
-/* Search Box */
 .hero-search-container {
   display: flex;
   align-items: center;
@@ -103,7 +101,6 @@
   }
 }
 
-/* Hiệu ứng nền di chuyển */
 @keyframes gradientMove {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -115,7 +112,6 @@
   animation: gradientMove 6s infinite linear;
 }
 
-/* Hiệu ứng xuất hiện */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -142,7 +138,6 @@
   100% { opacity: 1; transform: scale(1); }
 }
 
-/* Hiệu ứng khi cuộn */
 @keyframes fadeInScroll {
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
