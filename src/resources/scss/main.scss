@@ -7,16 +7,6 @@
 @use 'base/typography';
 @use 'base/base';
 
-@use 'components/bg_home' as *;
-@use 'components/flashdeal';
-@use 'components/browse_menu';
-@use 'components/popular_item';
-@use 'components/bg_intro';
-@use 'components/best_deals';
-@use 'components/deli_food';
-@use 'components/best_deal';
-@use 'components/bg_order';
-
 @use 'layout/grid';
 @use 'layout/sidebar';
 @use 'layout/header';
@@ -26,10 +16,5 @@
 @use 'pages/about';
 @use 'pages/menu';
 @use 'pages/contact';
-
-@use 'admin/admin-dashboard';
-@use 'admin/admin-users';
-@use 'admin/admin-orders';
-@use 'admin/admin-reports';
 
 @use "sass:color";

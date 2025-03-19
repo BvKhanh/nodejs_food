@@ -1,0 +1,100 @@
+.flash-deal {
+  background-color: #101820;
+  padding: 20px;
+
+  h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: #ffffff; // Màu tiêu đề
+      text-align: center; // Căn giữa tiêu đề
+  }
+
+  .row {
+      display: grid; // Sử dụng grid để tạo bố cục
+      grid-template-columns: repeat(3, 1fr); // 3 cột
+      gap: 10px; // Khoảng cách giữa các thẻ
+      justify-items: center; // Căn giữa các thẻ trong cột
+  }
+
+  .card {
+    margin-bottom: 20px;
+      width: 520px; // Kích thước thẻ
+      height: 380px; // Chiều cao
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: none;
+      border-radius: 10px; // Bo tròn góc
+      overflow: hidden; // Ẩn phần thừa ra ngoài
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+
+      img {
+          width: 100%; // Chiều rộng 100%
+          height: 200px; // Chiều cao cố định cho hình ảnh
+          object-fit: cover; // Đảm bảo hình ảnh không bị méo
+          display: block; // Tắt khoảng cách dưới hình ảnh
+          margin: 0; // Đảm bảo hình ảnh sát mép
+      }
+
+      &:hover {
+          transform: scale(1.05); // Phóng to thẻ khi hover
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      .card-body {
+          background-color: #ffffff; // Nền trắng cho nội dung
+          padding: 1rem; // Giảm padding
+          text-align: center;
+
+          .card-title {
+              font-size: 1.25rem; // Kích thước tiêu đề
+              margin: 0.5rem 0;
+              color: #333; // Màu chữ tiêu đề
+          }
+
+          .card-text {
+              font-size: 0.9rem; // Kích thước mô tả
+              margin-bottom: 1rem;
+              color: #555; // Màu chữ mô tả
+          }
+
+          .btn {
+              background-color: #dc3545; // Màu nút
+              border: none;
+              padding: 8px 16px; // Kích thước nút
+              font-size: 1rem;
+              border-radius: 5px;
+              transition: background-color 0.3s;
+
+              &:hover {
+                  background-color: #c82333;
+              }
+          }
+      }
+  }
+}
+.countdown {
+  font-size: 1.5rem; // Kích thước chữ
+  color: #ffffff; // Màu chữ
+  margin-bottom: 20px; // Khoảng cách dưới
+  display: block;
+}
+.price-container {
+  display: flex; // Sử dụng Flexbox
+  align-items: center; // Căn giữa theo chiều dọc
+  margin-top: 10px; // Khoảng cách trên
+  align-items: center;
+  justify-content: center;
+}
+
+.old-price {
+  text-decoration: line-through; // Gạch ngang
+  color: #999; // Màu xám
+  margin-right: 10px; // Khoảng cách giữa giá cũ và giá mới
+}
+
+.new-price {
+  color: #dc3545; // Màu đỏ cho giá mới
+  font-weight: bold; // Đậm
+}

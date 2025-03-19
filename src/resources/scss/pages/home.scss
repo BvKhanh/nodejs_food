@@ -1,12 +1,12 @@
 
 @use '../../scss/abstracts/variables';
 
-@use '../components/bg_home';
-@use '../components/flashdeal';
-@use '../components/browse_menu';
-@use '../components/popular_item';
-@use '../components/bg_intro';
-@use '../components/best_deals';
-@use '../components/deli_food';
-@use '../components/best_deal';
-@use '../components/bg_order';
+@use '../components/home/bg_home';
+@use '../components/home/flashdeal';
+@use '../components/home/browse_menu';
+@use '../components/home/popular_item';
+@use '../components/home/bg_intro';
+// @use '../components/best_deals';
+@use '../components/home/deli_food';
+@use '../components/home/best_deal';
+@use '../components/home/bg_order';

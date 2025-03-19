@@ -1,0 +1,64 @@
+<div class="container mt-5">
+    <h2 class="mb-4">Giỏ hàng của bạn</h2>
+    {{#if cartItems.length}}
+        <table class="table table-bordered text-center">
+            <thead class="table-dark">
+                <tr>
+                    <th>Hình ảnh</th>
+                    <th>Tên món</th>
+                    <th>Giá</th>
+                    <th>Số lượng</th>
+                    <th>Tổng tiền</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each cartItems}}
+                <tr class="align-middle">
+                    <td><img src="{{this.image}}" alt="{{this.name}}" class="img-thumbnail" width="80"></td>
+                    <td>{{this.name}}</td>
+                    <td>{{this.price}} VND</td>
+                    <td>
+                        <input type="number" class="form-control quantity" data-id="{{this.id}}" value="{{this.quantity}}" min="1">
+                    </td>
+                    <td class="item-total">{{this.total}} VND</td>
+                    <td>
+                        <button class="btn btn-danger btn-remove" data-id="{{this.id}}">Xóa</button>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        <h4 class="text-end">Tổng cộng: <span id="cart-total">{{cartTotal}}</span> VND</h4>
+        <button class="btn btn-success float-end mt-3">Thanh toán</button>
+    {{else}}
+        <p class="text-center">Giỏ hàng của bạn đang trống.</p>
+    {{/if}}
+</div>
+
+<script>
+    document.querySelectorAll('.quantity').forEach(input => {
+        input.addEventListener('change', function() {
+            const id = this.dataset.id;
+            const quantity = this.value;
+            fetch('/cart/update', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id, quantity })
+            }).then(() => location.reload());
+        });
+    });
+
+    document.querySelectorAll('.btn-remove').forEach(button => {
+        button.addEventListener('click', function() {
+            const id = this.dataset.id;
+            fetch('/cart/remove', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id })
+            }).then(() => location.reload());
+        });
+    });
+</script>
+
+

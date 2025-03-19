@@ -1,0 +1,144 @@
+
+<div class="intro-slider">
+    <div class="intro-title">
+        Bạn có đói không?
+    </div>
+    <div class="intro-images">
+        <div class="intro-image-item" style="--i: 1;">
+            <img src="img/bunbo.png" alt="Bún Bò">
+        </div>
+        <div class="intro-image-item" style="--i: 2;">
+            <img src="img/banh_bao_kim_sa.jpg" alt="Bánh Bao Kim Sa">
+        </div>
+        <div class="intro-image-item" style="--i: 3;">
+            <img src="img/ga_ran.png" alt="Gà Rán">
+        </div>
+        <div class="intro-image-item" style="--i: 4;">
+            <img src="img/mi_cay.jpg" alt="Mì Cay">
+        </div>
+        <div class="intro-image-item" style="--i: 5;">
+            <img src="img/bun_cha.jpg" alt="Bún Chả">
+        </div>
+        <div class="intro-image-item" style="--i: 6;">
+            <img src="img/phobo.jpg" alt="Phở Bò">
+        </div>
+    </div>
+    <div class="intro-content">
+        <div class="intro-content-item active">
+            <h1>Bún Bò Huế</h1>
+            <div class="intro-description">
+                Bún Bò Huế – hương vị đậm đà từ nước dùng xương hầm, sả, 
+                mắm ruốc kết hợp với sợi bún to, thịt bò mềm, 
+                giò heo béo ngậy và rau sống tươi ngon. Một tô bún, tròn vị Huế!
+            </div>
+            <button class="intro-btn">See more</button>
+        </div>
+        <div class="intro-content-item">
+            <h1>Bánh Bao Kim Sa</h1>
+            <div class="intro-description">
+                Bánh bao kim sa – lớp vỏ mềm mịn, 
+                nhân trứng muối tan chảy béo thơm, 
+                cắn một miếng là mê! Thử ngay để cảm nhận vị ngon khó cưỡng!
+            </div>
+            <button class="intro-btn">See more</button>
+        </div>
+        <div class="intro-content-item">
+            <h1>Gà Rán</h1>
+            <div class="intro-description">
+                Gà rán – lớp vỏ giòn rụm, thịt mềm mọng, 
+                đậm đà hương vị! Cắn một miếng, giòn tan cực đã!
+            </div>
+            <button class="intro-btn">See more</button>
+        </div>
+        <div class="intro-content-item">
+            <h1>Mì Cay</h1>
+            <div class="intro-description">
+                Mì cay – sợi mì dai, nước dùng đậm đà, 
+                cay tê đầu lưỡi! Thử một lần là ghiền!
+            </div>
+            <button class="intro-btn">See more</button>
+        </div>
+        <div class="intro-content-item">
+            <h1>Bún Chả Hà Nội</h1>
+            <div class="intro-description">
+                Bún Chả Hà Nội – thịt nướng than hoa thơm lừng, nước chấm đậm đà, 
+                ăn kèm bún tươi và rau sống. Hương vị khó quên!
+            </div>
+            <button class="intro-btn">See more</button>
+        </div>
+        <div class="intro-content-item">
+            <h1>Phở Bò</h1>
+            <div class="intro-description">
+                Phở Bò – tinh hoa ẩm thực Việt với nước dùng thanh ngọt, 
+                bánh phở mềm dai, thịt bò thơm ngon, ăn kèm rau thơm và chanh ớt. 
+                Một tô phở, trọn vẹn hương vị!
+            </div>
+            <button class="intro-btn">See more</button>
+        </div>
+         <div class="intro-content-item">
+            <h1>Phở Bò</h1>
+            <div class="intro-description">
+                Phở Bò – tinh hoa ẩm thực Việt với nước dùng thanh ngọt, 
+                bánh phở mềm dai, thịt bò thơm ngon, ăn kèm rau thơm và chanh ớt. 
+                Một tô phở, trọn vẹn hương vị!
+            </div>
+            <button class="intro-btn">See more</button>
+        </div>
+         <div class="intro-content-item">
+            <h1>Phở Bò</h1>
+            <div class="intro-description">
+                Phở Bò – tinh hoa ẩm thực Việt với nước dùng thanh ngọt, 
+                bánh phở mềm dai, thịt bò thơm ngon, ăn kèm rau thơm và chanh ớt. 
+                Một tô phở, trọn vẹn hương vị!
+            </div>
+            <button class="intro-btn">See more</button>
+        </div>
+         <div class="intro-content-item">
+            <h1>Phở Bò</h1>
+            <div class="intro-description">
+                Phở Bò – tinh hoa ẩm thực Việt với nước dùng thanh ngọt, 
+                bánh phở mềm dai, thịt bò thơm ngon, ăn kèm rau thơm và chanh ớt. 
+                Một tô phở, trọn vẹn hương vị!
+            </div>
+            <button class="intro-btn">See more</button>
+        </div>
+    </div>
+    <button id="intro-prev"><</button>
+    <button id="intro-next">></button>
+</div>
+
+<script>
+    let prevBtn = document.getElementById('intro-prev');
+    let nextBtn = document.getElementById('intro-next');
+    let imageContainer = document.querySelector('.intro-images');
+    let imageItems = document.querySelectorAll('.intro-image-item');
+    let contentItems = document.querySelectorAll('.intro-content-item');
+
+    let currentIndex = 0;
+    let totalItems = imageItems.length;
+    let rotateStep = 360 / totalItems;
+    let currentRotation = 0;
+
+    function showSlider() {
+        imageContainer.style.setProperty("--rotate", currentRotation + 'deg');
+        contentItems.forEach((item, index) => {
+            item.classList.toggle('active', index === currentIndex);
+        });
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % totalItems;
+        currentRotation += rotateStep;
+        showSlider();
+    }
+
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+        currentRotation -= rotateStep;
+        showSlider();
+    }
+
+    nextBtn.onclick = nextSlide;
+    prevBtn.onclick = prevSlide;
+    setInterval(nextSlide, 3000);
+</script>

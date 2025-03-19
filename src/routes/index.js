@@ -1,4 +1,4 @@
-const newsRouter = require('./news');
+// const newsRouter = require('./news');
 const menuRouter = require('./menu');
 const homeRouter = require('./home');
 const contactRouter = require('./contact');
@@ -7,8 +7,16 @@ const authRouter = require('./auth');
 const accountRouter = require('./account');
 const adminRoutes = require('./admin');
 const cartRouter = require('./cart');
+const userRouter = require('./user');
+
 
 function route(app) {
+
+    app.use('/', authRouter);
+
+    app.use('/user', cartRouter);
+
+    app.use('/user', userRouter);
 
     app.use('/cart', cartRouter);
 

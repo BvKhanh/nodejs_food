@@ -35,12 +35,12 @@ app.engine('.hbs', engine({
     layoutsDir: path.join(__dirname, 'resources', 'views', 'layouts'),
     partialsDir: [
         path.join(__dirname, 'resources', 'views', 'partials'), 
-        path.join(__dirname, 'resources', 'views', 'partials', 'partials_home'),
-        path.join(__dirname, 'resources', 'views', 'partials', 'partials_about'),
-        path.join(__dirname, 'resources', 'views', 'partials', 'partials_contact'),
-        path.join(__dirname, 'resources', 'views', 'partials', 'partials_menu'),
-        path.join(__dirname, 'resources', 'views', 'partials', 'partials_auth'),
-        path.join(__dirname, 'resources', 'views', 'partials', 'partials_account')
+        path.join(__dirname, 'resources', 'views', 'partials', 'home'),
+        path.join(__dirname, 'resources', 'views', 'partials', 'about'),
+        path.join(__dirname, 'resources', 'views', 'partials', 'contact'),
+        path.join(__dirname, 'resources', 'views', 'partials', 'menu'),
+        path.join(__dirname, 'resources', 'views', 'partials', 'auth'),
+        path.join(__dirname, 'resources', 'views', 'partials', 'account')
     ]
 }));
 

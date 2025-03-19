@@ -112,3 +112,15 @@ footer {
   }
   
 }
+
+.navbar-brand span {
+  color: #ff5722; /* Đổi màu chữ FoodParadise */
+}
+
+.nav-link i {
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-link:hover i {
+  color: #ff5722; /* Màu cam khi hover */
+}

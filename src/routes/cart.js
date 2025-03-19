@@ -3,7 +3,7 @@ const router = express.Router();
 const CartController = require('../app/controllers/CartController');
 
 // Hiển thị giỏ hàng
-router.get('/', CartController.showCart);
+router.get('/cart', CartController.showCart);
 
 // Thêm sản phẩm vào giỏ hàng
 router.post('/add', CartController.addToCart);

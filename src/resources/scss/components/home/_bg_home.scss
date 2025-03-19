@@ -1,0 +1,232 @@
+
+//  background: linear-gradient(to right, #fbbd08, #f97316);
+
+/* Hero Section */
+.bg-home {
+  position: relative;
+  height: 50vh;
+  background: linear-gradient(to right, #fbbd08, #f97316);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem 1rem;
+  overflow: hidden;
+  animation: fadeIn 1.5s ease-in-out, zoomIn 1.5s ease-in-out;
+
+  &__title {
+    font-family: 'Lobster', cursive;
+    font-size: 3rem;
+    font-weight: bold;
+    color: black !important;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+    font-style: italic;
+    animation: slideDown 1.5s ease-out;
+  }
+
+  &__subtitle {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: oblique;
+    font-size: 1.2rem;
+    color: white;
+    letter-spacing: .2px;
+    margin-bottom: 2rem;
+    animation: fadeIn 2s ease-in-out;
+  }
+
+  &__content {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+
+    &.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  &__search-container {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 50px;
+    padding: 0.75rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+    position: relative;
+    animation: fadeInUp 1.5s ease-in-out, bounceIn 1.5s ease-in-out;
+
+    &-icon {
+      font-size: 1.5rem;
+      padding-right: 10px;
+      color: #ffc107;
+    }
+
+    &-input {
+      flex-grow: 1;
+      border: none;
+      outline: none;
+      background-color: transparent;
+      padding: 0.75rem;
+      font-size: 1rem;
+
+      &::placeholder {
+        color: #aaa;
+      }
+
+      &:focus {
+        outline: none;
+        box-shadow: none;
+      }
+    }
+
+    &-button {
+      background-color: #dc3545;
+      border: none;
+      border-radius: 50px;
+      padding: 0.75rem 3.5rem;
+      color: white;
+      font-size: 1rem;
+      font-weight: bold;
+      transition: background-color 0.3s, transform 0.3s;
+      width: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+      animation: fadeInUp 1.8s ease-in-out, bounceIn 1.8s ease-in-out;
+
+      &:hover {
+        background-color: #c82333;
+        transform: scale(1.05);
+      }
+    }
+  }
+}
+
+.bg-home__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; // Khoảng cách giữa icon và chữ
+  background-color: #dc3545;
+  border: none;
+  border-radius: 50px;
+  padding: 0.75rem 2rem;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.3s;
+  width: 200px;
+  white-space: nowrap;
+  animation: fadeInUp 1.8s ease-in-out, bounceIn 1.8s ease-in-out;
+
+  i {
+    font-size: 1.2rem;
+  }
+
+  &:hover {
+    background-color: #c82333;
+    transform: scale(1.05);
+  }
+}
+
+.bg-home__input {
+  border: none;
+  outline: none; // Loại bỏ viền khi focus
+  background-color: transparent;
+  padding: 0.75rem;
+  font-size: 1rem;
+
+  &::placeholder {
+    color: #aaa;
+  }
+
+  &:focus {
+    outline: none !important;
+    box-shadow: none !important; // Loại bỏ hiệu ứng viền xanh của Bootstrap
+    border: none !important;
+  }
+}
+
+// Hiệu ứng nền gradient chuyển động
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.bg-home {
+  background-size: 200% 200%;
+  animation: gradientMove 6s infinite linear;
+}
+
+// Hiệu ứng animation
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes zoomIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes bounceIn {
+  0% { opacity: 0; transform: scale(0.9); }
+  50% { opacity: 0.5; transform: scale(1.05); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeInScroll {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 5px rgba(255, 102, 0, 0.5);
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(255, 102, 0, 0.8);
+  }
+}
+
+.fd-badge {
+  background: linear-gradient(45deg, #ff6600, #ff3300);  // Hiệu ứng chuyển màu
+  font-size: 1rem;
+  padding: 6px 12px;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: bold;
+  animation: pulse 1.5s infinite;
+}
+
+
+.scroll-effect {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+

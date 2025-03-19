@@ -1,0 +1,106 @@
+<div class="flash-deal text-center">
+    <h2>Flash Deal</h2>
+    <div id="countdown" class="countdown"></div>
+    <div class="row">
+        <div class="card">
+            <img src="img/bunbo.png" class="card-img-top" alt="Món ăn 1">
+            <div class="card-body">
+                <h5 class="card-title">Món Ăn 1</h5>
+                <p class="card-text">Mô tả ngắn về món ăn 1.</p>
+                <div class="price-container text-center">
+        <p class="old-price">100.000đ</p> <!-- Giá cũ -->
+        <p class="new-price">80.000đ</p> <!-- Giá mới -->
+    </div>
+                <a href="#" class="btn">Mua Ngay</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="path-to-image2.jpg" class="card-img-top" alt="Món ăn 2">
+            <div class="card-body">
+                <h5 class="card-title">Món Ăn 2</h5>
+                <p class="card-text">Mô tả ngắn về món ăn 2.</p>
+                <a href="#" class="btn">Mua Ngay</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="path-to-image3.jpg" class="card-img-top" alt="Món ăn 3">
+            <div class="card-body">
+                <h5 class="card-title">Món Ăn 3</h5>
+                <p class="card-text">Mô tả ngắn về món ăn 3.</p>
+                <a href="#" class="btn">Mua Ngay</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="path-to-image4.jpg" class="card-img-top" alt="Món ăn 4">
+            <div class="card-body">
+                <h5 class="card-title">Món Ăn 4</h5>
+                <p class="card-text">Mô tả ngắn về món ăn 4.</p>
+                <a href="#" class="btn">Mua Ngay</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="path-to-image5.jpg" class="card-img-top" alt="Món ăn 5">
+            <div class="card-body">
+                <h5 class="card-title">Món Ăn 5</h5>
+                <p class="card-text">Mô tả ngắn về món ăn 5.</p>
+                <a href="#" class="btn">Mua Ngay</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="path-to-image6.jpg" class="card-img-top" alt="Món ăn 6">
+            <div class="card-body">
+                <h5 class="card-title">Món Ăn 6</h5>
+                <p class="card-text">Mô tả ngắn về món ăn 6.</p>
+                <a href="#" class="btn">Mua Ngay</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="path-to-image7.jpg" class="card-img-top" alt="Món ăn 7">
+            <div class="card-body">
+                <h5 class="card-title">Món Ăn 7</h5>
+                <p class="card-text">Mô tả ngắn về món ăn 7.</p>
+                <a href="#" class="btn">Mua Ngay</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="path-to-image8.jpg" class="card-img-top" alt="Món ăn 8">
+            <div class="card-body">
+                <h5 class="card-title">Món Ăn 8</h5>
+                <p class="card-text">Mô tả ngắn về món ăn 8.</p>
+                <a href="#" class="btn">Mua Ngay</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="path-to-image9.jpg" class="card-img-top" alt="Món ăn 9">
+            <div class="card-body">
+                <h5 class="card-title">Món Ăn 9</h5>
+                <p class="card-text">Mô tả ngắn về món ăn 9.</p>
+                <a href="#" class="btn">Mua Ngay</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Thay đổi thời gian kết thúc ở đây (ví dụ: 1 giờ từ bây giờ)
+    const countdownDate = new Date().getTime() + 3600 * 1000; // 1 giờ
+
+    const countdownFunction = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = countdownDate - now;
+
+        // Tính toán thời gian còn lại
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Hiển thị kết quả trong phần tử countdown
+        document.getElementById("countdown").innerHTML = `${hours}h ${minutes}m ${seconds}s`;
+
+        // Nếu đếm ngược kết thúc
+        if (distance < 0) {
+            clearInterval(countdownFunction);
+            document.getElementById("countdown").innerHTML = "Đã kết thúc!";
+        }
+    }, 1000);
+</script>

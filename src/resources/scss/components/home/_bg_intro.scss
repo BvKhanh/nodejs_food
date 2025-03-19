@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+.intro-slider {
+    position: relative;
+    width: 100%;
+    height: 97vh;
+    background-image: linear-gradient(to right, #2B2F3A, #0D0E12);
+    overflow: hidden;
+}
+
+.intro-slider::before {
+    position: absolute;
+    width: 50%;
+    height: 100vh;
+    content: '';
+    top: 0;
+    left: 0;
+    background-color: #E88735;
+}
+
+.intro-title {
+    position: absolute;
+    top: 10%;
+    right: 60%;
+    text-align: right;
+    color: #fff;
+    font-size: 150px;
+    width: 40%;
+    font-family: 'Pacifico', cursive;
+    text-shadow: 3px 5px 0px #478860;
+    line-height: .9em;
+    transform: rotate(-5deg);
+}
+
+.intro-images {
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    --rotate: 0deg;
+    transform: translate(-50%, 50%) rotate(var(--rotate));
+    width: 1300px;
+    height: 1300px;
+    border-radius: 50%;
+    transition: transform 0.5s ease-in-out;
+    outline: 3px dashed #fff5;
+    outline-offset: -100px;
+}
+
+.intro-image-item {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    rotate: calc(60deg * var(--i));
+}
+
+
+.intro-image-item img {
+  width: 320px;
+    height: 320px;
+    border-radius: 70%;
+    object-fit: cover;
+}
+
+.intro-content {
+    color: #fff;
+    position: absolute;
+    top: 10%;
+    left: 60%;
+    text-align: justify;
+    width: 350px;
+}
+
+.intro-content h1 {
+    color: #E88735;
+    font-size: xxx-large;
+}
+
+.intro-btn {
+    margin-top: 30px;
+    padding: 10px 30px;
+    border-radius: 20px;
+    background-color: #E88735;
+    color: #fff;
+    border: none;
+    float: right;
+}
+
+.intro-content-item {
+    display: none;
+}
+
+.intro-content-item.active {
+    display: block;
+}
+
+@keyframes showContent {
+    from {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.intro-content-item.active h1 {
+    opacity: 0;
+    animation: showContent 0.5s ease-in-out 1 forwards;
+}
+
+.intro-content-item.active .intro-description {
+    opacity: 0;
+    animation: showContent 0.5s 0.3s ease-in-out 1 forwards;
+}
+
+.intro-content-item.active .intro-btn {
+    opacity: 0;
+    animation: showContent 0.5s 0.6s ease-in-out 1 forwards;
+}
+
+#intro-prev,
+#intro-next {
+    position: absolute;
+    border: none;
+    top: 50%;
+    left: 250px;
+    font-size: 100px;
+    font-family: cursive;
+    background-color: transparent;
+    color: #fff;
+    font-weight: bold;
+    opacity: 0.3;
+}
+
+#intro-next {
+    left: unset;
+    right: 250px;
+}
+
+#intro-next:hover,
+#intro-prev:hover {
+    opacity: 1;
+}

@@ -13,5 +13,3 @@ router.get('/orders', AdminController.orders);
 router.get('/products', AdminController.products);
 
 module.exports = router;
-
-

@@ -1,0 +1,81 @@
+<section style="background-color: #eee;">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col">
+        <nav aria-label="breadcrumb" class="bg-body-tertiary rounded-3 p-3 mb-4">
+          <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+            <li class="breadcrumb-item"><a href="#">Tài khoản</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Hồ sơ cá nhân</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card mb-4 text-center">
+          <div class="card-body">
+            <img src="/img/raica.jpg" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
+            <h5 class="my-3">Nguyễn Văn A</h5>
+            <p class="text-muted mb-4">Khách hàng</p>
+            <button class="btn btn-primary">Cập nhật ảnh đại diện</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="card mb-4">
+          <div class="card-body">
+            <form id="profileForm">
+              <div class="mb-3">
+                <label for="fullName" class="form-label">Họ và tên</label>
+                <input type="text" class="form-control" id="fullName" value="Nguyễn Văn A">
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" value="example@example.com">
+              </div>
+              <div class="mb-3">
+                <label for="phone" class="form-label">Số điện thoại</label>
+                <input type="text" class="form-control" id="phone" value="0123 456 789">
+              </div>
+              <div class="mb-3">
+                <label for="address" class="form-label">Địa chỉ</label>
+                <input type="text" class="form-control" id="address" value="Hà Nội, Việt Nam">
+              </div>
+              <button type="submit" class="btn btn-success">Lưu thay đổi</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.getElementById('profileForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const fullName = document.getElementById('fullName').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const address = document.getElementById('address').value;
+    
+    // Gửi dữ liệu lên server bằng Fetch API
+    fetch('/user/update-profile', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ fullName, email, phone, address })
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        alert('Cập nhật thông tin thành công!');
+      } else {
+        alert('Có lỗi xảy ra!');
+      }
+    })
+    .catch(error => console.error('Lỗi:', error));
+  });
+</script>
