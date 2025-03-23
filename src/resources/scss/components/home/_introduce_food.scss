@@ -1,0 +1,125 @@
+.introduce-food-hero {
+  background-color: #FFA500;  /* Màu cam tươi sáng */
+  color: white;
+  padding: 4rem 0;  /* Tăng khoảng cách phía trên và dưới */
+  position: relative;
+}
+
+.introduce-food-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.introduce-food-image {
+  flex: 1;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.introduce-food-image img {
+  max-width: 100%;
+  height: 630px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.introduce-food-content {
+  flex: 1;
+  margin-top: 1.5rem;
+
+  @media (min-width: 768px) {
+    margin-top: 0;
+    margin-left: 2rem;
+  }
+
+  .introduce-food-title {
+    font-size: 3rem;  /* Sử dụng kích thước lớn hơn cho tiêu đề */
+    font-weight: 700;
+    line-height: 1.3;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);  /* Thêm hiệu ứng đổ bóng cho tiêu đề */
+  }
+
+  .introduce-food-description {
+    font-size: 1.25rem;
+    color: #f1f1f1;
+    line-height: 1.6;
+    margin-top: 1rem;
+  }
+
+  .introduce-food-info-box {
+    max-width: 550px; /* Giới hạn chiều rộng */
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Nền tối với độ trong suốt */
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  padding: 2rem;
+  transition: all 0.3s ease;
+  }
+
+  .introduce-food-info-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    color: #ffffff; /* Màu cam nổi bật */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+  }
+
+  .introduce-food-info-list {
+    list-style: none;
+    padding: 0;
+
+    .introduce-food-info-item {
+      display: flex;
+      align-items: center;
+
+      i {
+        font-size: 1.4rem;
+  color: #ff6600; /* Màu cam cho biểu tượng */
+  transition: color 0.3s ease;
+      }
+    }
+  }
+}
+
+.introduce-food-info-item:hover {
+  color: #ff6600; /* Đổi màu khi hover vào mục */
+}
+/* Thêm hiệu ứng hover cho box info */
+.introduce-food-info-box:hover {
+  transform: scale(1.05);
+  transition: all 0.3s ease-in-out;
+}
+
+.introduce-food-info-item:hover i {
+  color: #ffffff; /* Đổi màu biểu tượng khi hover */
+}
+
+.info-text {
+  margin-left: 10px;
+  font-weight: 500;
+}
+/* Đảm bảo độ responsive */
+@media (max-width: 768px) {
+  .introduce-food-title {
+    font-size: 2.5rem;
+  }
+
+  .introduce-food-description {
+    font-size: 1.15rem;
+  }
+
+  .introduce-food-info-box {
+    padding: 0.5rem;
+  }
+}

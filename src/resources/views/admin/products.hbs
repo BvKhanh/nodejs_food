@@ -128,22 +128,15 @@
     });
 
     function filterProducts() {
-        const searchValue = document.getElementById('searchProduct').value.toLowerCase();
-        const statusFilter = document.getElementById('filterStatus').value;
-        const rows = document.querySelectorAll("#productTable tr");
+    const searchValue = document.getElementById("searchProduct").value.toLowerCase();
+    const rows = document.querySelectorAll("#productTable tr");
 
-        rows.forEach(row => {
-            const productName = row.cells[1].textContent.toLowerCase();
-            const status = row.getAttribute("data-status");
-
-            const matchesSearch = productName.includes(searchValue);
-            const matchesStatus = (statusFilter === "all") || (status === statusFilter);
-
-            if (matchesSearch && matchesStatus) {
-                row.style.display = "";
-            } else {
-                row.style.display = "none";
-            }
-        });
-    }
+    rows.forEach(row => {
+        const nameCell = row.querySelector("td:nth-child(2)");
+        if (nameCell) {
+            const name = nameCell.textContent.toLowerCase();
+            row.style.display = name.includes(searchValue) ? "" : "none";
+        }
+    });
+}
 </script>

@@ -1,0 +1,106 @@
+@charset "UTF-8";
+footer {
+  background-color: #111;
+  color: #fff;
+  padding: 3rem 0;
+}
+footer h5 {
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+footer p {
+  color: #bbb;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+footer ul {
+  list-style: none;
+  padding: 0;
+}
+footer ul li {
+  margin-bottom: 0.6rem;
+}
+footer ul li a {
+  color: #bbb;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+footer ul li a:hover {
+  color: #ffc107;
+}
+footer .input-group input {
+  background: #222;
+  border: none;
+  color: white;
+  padding: 0.7rem;
+  font-size: 0.95rem;
+}
+footer .input-group input::-moz-placeholder {
+  color: #aaa;
+}
+footer .input-group input::placeholder {
+  color: #aaa;
+}
+footer .input-group input:focus {
+  outline: none;
+  box-shadow: none;
+}
+footer .input-group button {
+  background-color: #ffc107;
+  color: #222;
+  font-weight: bold;
+  border: none;
+  transition: background 0.3s ease-in-out;
+}
+footer .input-group button:hover {
+  background-color: #e0a800;
+}
+footer .social-icons a {
+  color: #bbb;
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  transition: color 0.3s ease-in-out;
+}
+footer .social-icons a:hover {
+  color: #ffc107;
+}
+footer hr {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+@media (max-width: 768px) {
+  footer {
+    text-align: center;
+  }
+  footer .social-icons {
+    margin-top: 1rem;
+  }
+}
+footer .subscribe-btn {
+  background-color: #ffc107;
+  color: #222;
+  font-weight: bold;
+  border: none;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 10px rgba(255, 193, 7, 0.5);
+}
+footer .subscribe-btn:hover {
+  background-color: #e0a800;
+  box-shadow: 0 0 20px rgba(255, 193, 7, 0.8);
+}
+footer .subscribe-btn:focus {
+  outline: none;
+  box-shadow: 0 0 25px rgb(255, 193, 7);
+}
+
+.navbar-brand span {
+  color: #ff5722;
+}
+
+.nav-link i {
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-link:hover i {
+  color: #ff5722; /* Màu cam khi hover */
+}/*# sourceMappingURL=footer.css.map */

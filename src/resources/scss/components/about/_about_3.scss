@@ -1,64 +1,118 @@
-.customer-reviews-section {
-  background-color: #FFA500; // Màu nền cam
-  color: white;
-  padding: 3rem 0;
+// .customer-reviews-section {
+//   background-color: #FFA500; // Màu nền cam
+//   color: white;
+//   padding: 3rem 0;
 
-  .customer-reviews-title {
-      font-size: 2rem;
-      font-weight: bold;
-      margin-bottom: 2rem;
-  }
+//   .customer-reviews-title {
+//       font-size: 2rem;
+//       font-weight: bold;
+//       margin-bottom: 2rem;
+//   }
 
-  .row {
-      display: flex;
-      align-items: stretch; // Đảm bảo tất cả các card có chiều cao bằng nhau
-  }
+//   .row {
+//       display: flex;
+//       align-items: stretch; // Đảm bảo tất cả các card có chiều cao bằng nhau
+//   }
 
-  .customer-review-card {
-      background-color: white;
-      color: black;
-      padding: 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      text-align: left;
-      display: flex;
-      flex-direction: column; // Giữ nội dung theo chiều dọc
-      justify-content: space-between; // Căn chỉnh nội dung đều trong card
-      height: 100%; // Giúp các card có chiều cao bằng nhau
+//   .customer-review-card {
+//       background-color: white;
+//       color: black;
+//       padding: 1.5rem;
+//       border-radius: 10px;
+//       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+//       text-align: left;
+//       display: flex;
+//       flex-direction: column; // Giữ nội dung theo chiều dọc
+//       justify-content: space-between; // Căn chỉnh nội dung đều trong card
+//       height: 100%; // Giúp các card có chiều cao bằng nhau
 
-      .customer-review-text {
-          font-size: 1.25rem;
-          font-weight: bold;
-      }
+//       .customer-review-text {
+//           font-size: 1.25rem;
+//           font-weight: bold;
+//       }
 
-      .customer-review-description {
-          font-size: 1rem;
-          color: #555;
-          flex-grow: 1; // Đẩy phần còn lại của nội dung xuống để căn bằng
-      }
+//       .customer-review-description {
+//           font-size: 1rem;
+//           color: #555;
+//           flex-grow: 1; // Đẩy phần còn lại của nội dung xuống để căn bằng
+//       }
 
-      .customer-info {
-          display: flex;
-          align-items: center;
-          margin-top: 1rem;
+//       .customer-info {
+//           display: flex;
+//           align-items: center;
+//           margin-top: 1rem;
 
-          .customer-photo {
-              width: 50px;
-              height: 50px;
-              border-radius: 50%;
-              object-fit: cover;
-              margin-right: 0.75rem;
-          }
+//           .customer-photo {
+//               width: 50px;
+//               height: 50px;
+//               border-radius: 50%;
+//               object-fit: cover;
+//               margin-right: 0.75rem;
+//           }
 
-          .customer-name {
-              font-weight: bold;
-              margin-bottom: 0;
-          }
+//           .customer-name {
+//               font-weight: bold;
+//               margin-bottom: 0;
+//           }
 
-          .customer-location {
-              font-size: 0.9rem;
-              color: #777;
-          }
-      }
-  }
+//           .customer-location {
+//               font-size: 0.9rem;
+//               color: #777;
+//           }
+//       }
+//   }
+// }
+
+.background-about-3{
+    background-color: #f5a623;
+}
+
+.about-3-custom-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+.section-heading {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #000;
+    text-align: center;
+    margin-bottom: 40px;
+}
+.testimonial-card {
+    background-color: #fff;
+    border-radius:  25px 15px 15px 15px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 100%; /* Ensure all cards have the same height */
+}
+.testimonial-card .quote {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #dc3545; /* Red color for the quote */
+    margin-bottom: 15px;
+}
+.testimonial-card .text {
+    font-size: 1rem;
+    color: #6c757d;
+    margin-bottom: 20px;
+}
+.testimonial-card .author {
+    display: flex;
+    align-items: center;
+}
+.testimonial-card .author img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.testimonial-card .author .name {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #000;
+}
+.testimonial-card .author .location {
+    font-size: 0.9rem;
+    color: #6c757d;
 }

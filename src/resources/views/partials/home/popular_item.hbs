@@ -1,100 +1,29 @@
-<div id="carouselExamplesControls" class="carousel carousel-dark slide" data-bs-ride="carousel">
-  <h2 class="text-center">Những món ăn phổ biến</h2>
-  <div class="carousel-inner">
+<div id="popular-items-carousel" class="carousel carousel--dark slide" data-bs-ride="carousel">
+  <h2 class="carousel__title text-center">Những món ăn phổ biến</h2>
+  <div class="carousel__inner">
+    {{#each items}}
     <!-- Slide 1 -->
-    <div class="carousel-item active">
-      <div class="card-wrapper container-sm d-flex justify-content-between">
-        <div class="card" style="width: 18rem;">
-          <img src="img/bunbo.png" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title 1</h5>
+    <div class="carousel__item {{#if @first}}carousel__item--active{{/if}}">
+      <div class="carousel__card-wrapper container-sm d-flex justify-content-between">
+        {{#each this}}
+        <div class="carousel__card" style="width: 18rem;">
+          <img src="{{imageUrl}}" class="carousel__card-img-top" alt="{{title}}">
+          <div class="carousel__card-body">
+            <h5 class="carousel__card-title">{{title}}</h5>
+            <p>{{description}}</p>
           </div>
         </div>
-        <div class="card" style="width: 18rem;">
-          <img src="img/bunbo.png" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title 2</h5>
-          </div>
-        </div>
-        <div class="card" style="width: 18rem;">
-          <img src="img/bunbo.png" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title 3</h5>
-          </div>
-        </div>
-        <div class="card" style="width: 18rem;">
-          <img src="img/bunbo.png" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title 4</h5>
-          </div>
-        </div>
+        {{/each}}
       </div>
     </div>
-    <!-- Slide 2 -->
-    <div class="carousel-item">
-      <div class="card-wrapper container-sm d-flex justify-content-between">
-        <div class="card" style="width: 18rem;">
-          <img src="img/bunbo.png" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title 5</h5>
-          </div>
-        </div>
-        <div class="card" style="width: 18rem;">
-          <img src="img/bunbo.png" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title 6</h5>
-          </div>
-        </div>
-        <div class="card" style="width: 18rem;">
-          <img src="img/bunbo.png" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title 7</h5>
-          </div>
-        </div>
-        <div class="card" style="width: 18rem;">
-          <img src="img/bunbo.png" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title 8</h5>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Slide 3 -->
-    <div class="carousel-item">
-      <div class="card-wrapper container-sm d-flex justify-content-between">
-        <div class="card" style="width: 18rem;">
-          <img src="img/bunbo.png" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title 9</h5>
-          </div>
-        </div>
-        <div class="card" style="width: 18rem;">
-          <img src="img/bunbo.png" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title 10</h5>
-          </div>
-        </div>
-        <div class="card" style="width: 18rem;">
-          <img src="img/bunbo.png" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title 11</h5>
-          </div>
-        </div>
-        <div class="card" style="width: 18rem;">
-          <img src="img/bunbo.png" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title 12</h5>
-          </div>
-        </div>
-      </div>
-    </div>
+    {{/each}}
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+  <button class="carousel__control carousel__control--prev" type="button" data-bs-target="#popular-items-carousel" data-bs-slide="prev">
+    <span class="carousel__control-icon carousel__control-icon--prev" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
   </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+  <button class="carousel__control carousel__control--next" type="button" data-bs-target="#popular-items-carousel" data-bs-slide="next">
+    <span class="carousel__control-icon carousel__control-icon--next" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>
 </div>

@@ -1,28 +1,71 @@
-h2,.carousel-inner{
-  padding: 50px 0;
-}
+.carousel {
+  &--dark {
+    background-color: #ffffff;
+  }
 
-.carousel-control-prev, .carousel-control-next{
-  background-color: #FFB20E;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  opacity: 1;
-  top: 55%;
-}
+  &__title {
+    font-size: 2rem;
+    color: #333;
+  }
 
-.carousel-control-prev {
-  transform: translateX(150px); 
-}
+  &__inner {
+    display: flex;
+    overflow: hidden;
+  }
 
-.carousel-control-next {
-  transform: translateX(-150px); 
-}
+  &__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-.carousel-control-prev, .carousel-control-next {
-  background-color: #FFB20E; 
-  border-radius: 50%; 
-  width: 40px;
-  height: 40px;
-  opacity: 1;
+    &--active {
+      display: block;
+    }
+  }
+
+  &__card-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  &__card {
+    width: 18rem;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  &__card-img-top {
+    width: 100%;
+    height: auto;
+  }
+
+  &__card-body {
+    padding: 1rem;
+  }
+
+  &__card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  &__control {
+    background-color: transparent;
+    border: none;
+    
+    &--prev,
+    &--next {
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    &-icon {
+      display: inline-block;
+    }
+
+    &-icon--prev,
+    &-icon--next {
+      color: #333;
+    }
+  }
 }

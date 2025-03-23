@@ -1,80 +1,73 @@
-// Định nghĩa background gradient cho container
 .custom-background {
-    background: linear-gradient(60deg, #fff9e6, #ffffff) ;
+  background-color: #f8f9fa;
+}
+
+.card {
+  border-radius: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.browse_menu{
+  color: #000000;
+}
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+  padding: 2rem;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.card-text {
+  font-size: 1rem;
+  color: #555;
+}
+
+.card-img-top {
+  transition: transform 0.3s ease;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.card-img-top:hover {
+  transform: scale(1.1);
+}
+
+.btn {
+  border-radius: 30px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #d9534f;
+  transform: translateY(-5px);
+}
+
+.browse-menu-text-center {
+  color: rgb(0, 0, 0) !important;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .card-title {
+      font-size: 1.25rem;
   }
-  
-  // Tạo kiểu cho tiêu đề
-  h1.text-center {
-    font-size: 3rem;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 40px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+
+  .card-text {
+      font-size: 0.95rem;
   }
-  
-  // Cải thiện kiểu cho các phần tử card
-  .card {
-    border: none;
-    border-radius: 10px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);  // Bóng đổ đậm hơn cho card
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  
-    &:hover {
-      transform: translateY(-10px);  // Di chuyển card lên khi hover
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);  // Bóng đổ đậm hơn khi hover
-    }
-  
-    .card-body {
-      padding: 30px;
-      text-align: center;
-    }
-  
-    .card-img-top {
-      width: 120px;
-      height: 120px;
-      object-fit: cover;
-      margin-bottom: 20px;
-    }
-  
-    .card-title {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: #444;
-      margin-bottom: 10px;
-    }
-  
-    .card-text {
-      font-size: 1rem;
-      color: #666;
-      margin-bottom: 20px;
-    }
-  
-    // Áp dụng text-decoration: none cho tất cả liên kết trong card
-    .btn-link {
-      font-size: 1.1rem;
-      color: #e74c3c;
-      font-weight: bold;
-      transition: color 0.3s ease;
-      text-decoration: none;  // Bỏ gạch chân cho các liên kết
-  
-      &:hover {
-        color: #c0392b;
-      }
-    }
+
+  .btn {
+      font-size: 0.9rem;
   }
-  
-  // Cải thiện layout của các cột
-  .row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-  }
-  
-  .col {
-    flex: 1;
-    min-width: 250px;
-    max-width: 300px;
-    margin: 0 auto;
-  }
-  
+}

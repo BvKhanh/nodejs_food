@@ -4,15 +4,18 @@ const homeRouter = require('./home');
 const contactRouter = require('./contact');
 const aboutRouter = require('./about');
 const authRouter = require('./auth');
-const accountRouter = require('./account');
 const adminRoutes = require('./admin');
 const cartRouter = require('./cart');
 const userRouter = require('./user');
+const registerRouter = require('./register');
 
 
 function route(app) {
 
+
     app.use('/', authRouter);
+
+    app.use('/register', registerRouter);
 
     app.use('/user', cartRouter);
 
@@ -21,8 +24,6 @@ function route(app) {
     app.use('/cart', cartRouter);
 
     app.use('/admin', adminRoutes);
-
-    app.use('/accounts',accountRouter);
 
     app.use('/auth', authRouter);
 

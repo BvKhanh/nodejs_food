@@ -15,11 +15,11 @@
 
 
 
-// .nav-item{
-//   font-family: 'Source Sans Pro', sans-serif;
-//   font-size: 1.2rem;
-//   color: #000000;
-// }
+.nav-item{
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 1.2rem;
+  color: #000000;
+}
 
 .nav{
   padding: 21px;
@@ -36,7 +36,7 @@
     text-decoration: none;
     padding: 10px 15px;
     border-radius: 10px;
-    transition: 0.3s ease-in-out;
+    transition: 0.5s ease-in-out;
     font-weight: bold;
 
     &:hover,
@@ -47,7 +47,4 @@
     }
   }
 }
-
-
-
 

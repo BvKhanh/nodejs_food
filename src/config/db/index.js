@@ -1,33 +1,15 @@
+const mongoose = require('mongoose');
 
-const dotenv = require('dotenv')
-dotenv.config();
-const {MongoClient, ServerApiVersion} = require('mongodb')
-const uri = process.env.DB_PASSWORD; // Kiểm tra lại biến này trong file .env, thường nên đặt tên là DB_CONNECTION_STRING
-
-const options = {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
-  },
-};
-
-let client;
-let db;
-
-async function connectDB() {
-  try {
-    if (!client) {
-      client = new MongoClient(uri, options);
-      await client.connect();
-      console.log("Đã kết nối đến MongoDB!");
-      db = client.db("myDatabase"); // Đổi "myDatabase" thành tên database của bạn
+async function connect() {
+    try {
+        await mongoose.connect('mongodb://127.0.0.1:27017/paradise_food_dev', {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        });
+        console.log('🟢 Kết nối MongoDB thành công!');
+    } catch (error) {
+        console.log('🔴 Kết nối MongoDB thất bại:', error);
     }
-    return db;
-  } catch (error) {
-    console.error("Lỗi kết nối MongoDB:", error);
-    process.exit(1);
-  }
 }
-connectDB()
-module.exports = connectDB
+
+module.exports = { connect };
